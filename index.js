@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 const program = require("commander");
+const pkg = require("./package.json");
 
 program
-  .version("0.1.0")
+  .version(pkg.version)
   .option("-n, --yourname [yourname]", "Your name")
   .option("-g, --glad", "Tell us you are happy")
   .parse(process.argv);
