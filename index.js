@@ -4,15 +4,9 @@ const program = require("commander");
 const pkg = require("./package.json");
 
 program
-  .version(pkg.version)
-  .option("-n, --yourname [yourname]", "Your name")
-  .option("-g, --glad", "Tell us you are happy")
+  .version(pkg.version, "-v, --version")
+  .option("necessary --necessary <arg>", "必要参数")
+  .option("notNecessary --notNecessary [arg]", "非必要参数")
   .parse(process.argv);
-
-if (program.yourname) {
-  console.log(
-    `Hello, ${program.yourname}! ${
-      program.glad ? "I am very happy to see you!" : ""
-    }`
-  );
+if (program.publish) {
 }
