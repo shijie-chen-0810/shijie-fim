@@ -12,7 +12,7 @@ const pkg = require("./package.json");
 const spinner = ora();
 program
   .version(pkg.version, "-v, --version")
-  .option("publish --publish <arg>", "必要参数")
+  .option("publish --publish <arg>", "mode=环境")
   .option("notNecessary --notNecessary [arg]", "非必要参数")
   .parse(process.argv);
 if (program.publish) {
