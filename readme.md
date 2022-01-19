@@ -64,3 +64,6 @@ sudo npm i shijie-fim    //mac
 ```
 
 #### 四：上线时只要`yarn publish:dev`或者`yarn publish:test`
+
+最终效果
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/22305382/1642587275355-b0ac5e7a-33e6-4810-ba30-a77f8b61e3fc.png#clientId=u995eeddb-0150-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=521&id=ubcfd8fd0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1042&originWidth=1436&originalType=binary&ratio=1&rotation=0&showTitle=false&size=249978&status=done&style=none&taskId=u8d79842d-9e08-4852-95c1-d9bd146e418&title=&width=718)
