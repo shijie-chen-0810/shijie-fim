@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 执行了build"
   },
   "bin": {
     "csj": "index.js"
@@ -22,7 +23,8 @@
   "homepage": "https://github.com/shijie-chen-0810/shijie-fim#readme",
   "dependencies": {
     "commander": "^2.19.0",
+    "moment": "^2.29.1",
     "ora": "^3.0.0",
-    "ssh2-sftp-client": "^3.1.0"
+    "ssh2": "^1.5.0"
   }
 }
