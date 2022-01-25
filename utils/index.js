@@ -2,6 +2,7 @@ const events = require("events");
 const Client = require("ssh2").Client;
 const fs = require("fs");
 const ora = require("ora");
+const chalk = require("chalk");
 const path = require("path");
 
 const print = ora();
@@ -107,7 +108,9 @@ function UploadFile(server, localPath, remotePath, then) {
       } else {
         sftp.fastPut(localPath, remotePath, function (err, result) {
           print.succeed(
-            "本地文件:" + localPath + "\n" + "远端地址:" + remotePath
+            chalk.gray(
+              "本地文件:" + localPath + "\n" + "远端地址:" + remotePath
+            )
           );
           conn.end();
           then(err, result);
@@ -139,6 +142,27 @@ function DownloadFile(server, remotePath, localPath, then) {
           }
         });
       }
+    });
+  });
+}
+
+/**
+ *
+ * @param {object} server 远程电脑凭证
+ * @param {string} remotePath 远程路径
+ * @param {Function} then 回调函数
+ */
+function ReadRemoteFile(server, remotePath, then) {
+  Connect(server, (conc) => {
+    conc.exec(`cat ${remotePath}`, (err, stream) => {
+      if (err) throw err;
+      stream
+        .on("close", (code, signal) => {
+          conc.end();
+        })
+        .on("data", (data) => {
+          then(data);
+        });
     });
   });
 }
@@ -312,4 +336,5 @@ module.exports = {
   GetFileOrDirList,
   DownloadDir,
   UploadDir,
+  ReadRemoteFile,
 };
